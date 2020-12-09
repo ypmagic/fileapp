@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1>{% block title %} Files for {{ g.user['username'] }} {% endblock %}</h1>
+    <ul class="list-group">
+        {% for item in file_list %}
+            <li class="list-group-item"><a href="{{ url_for('files.download_file', id=item.file_id) }}">{{ item.file_name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}

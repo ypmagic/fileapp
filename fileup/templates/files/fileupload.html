@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="jumbotron">
+    <p class="lead text-center">Please upload your file.</p>
+    <!-- Flash message -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <div class="text-center alert alert-primary col-md-3 col-md-offset-1" role="alert">
+                    {{ msg }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="container col-md-5 col-md-offset-1">
+        <form enctype="multipart/form-data" method='post'>
+            <input type="file" id="myFile" name="file">
+            <input type="submit" value="Upload">
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,4 @@
+include fileup/schema.sql
+graft fileup/static
+graft fileup/templates
+global-exclude *.pyc

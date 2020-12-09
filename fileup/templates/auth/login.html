@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="jumbotron">
+      <h1 class="display-4 text-center">{% block title %}Welcome to Fileapp!{% endblock %}</h1>
+      <p class="lead text-center">Login to upload your files.</p>
+
+      <!-- Material form login -->
+      <div class="card text-center mx-auto" style="width: 50rem;">
+
+        <h5 class="card-header info-color white-text text-center py-4">
+          <strong>Sign in</strong>
+        </h5>
+
+        <!--Card content-->
+        <div class="card-body px-lg-5 pt-0 mt-3">
+
+          <!-- Form -->
+          <form class="text-center" style="color: #757575;" method="post">
+
+            <!-- Email -->
+            <div class="md-form">
+              <label for="username">Username</label>
+              <input name="username" id="username" class="form-control" required>
+            </div>
+
+            <!-- Password -->
+            <div class="md-form">
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" class="form-control" required>
+            </div>
+
+            <!-- Sign in button -->
+            <input class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" value="Login">
+            
+            <!-- Flash message -->
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                {% for msg in messages %}
+                  <div class="alert alert-primary" role="alert">
+                    {{ msg }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+
+            <!-- Register -->
+            <p>Not a member?
+              <a href="{{ url_for('auth.register') }}">Register</a>
+            </p>
+
+          </form>
+          <!-- Form -->
+
+        </div>
+
+      </div>
+      <!-- Material form login -->
+  </div>
+{% endblock %}
